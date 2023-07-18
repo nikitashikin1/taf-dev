@@ -1,5 +1,6 @@
 package by.itacademy.shikin.Tests;
 
+import by.itacademy.shikin.Pages.DriverSingleton;
 import by.itacademy.shikin.Steps.DevLoginSteps;
 import by.itacademy.shikin.Pages.DevLoginPage;
 import by.itacademy.shikin.Utils.Utils;
@@ -7,24 +8,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
-import java.util.concurrent.TimeUnit;
 
 public class DevLoginTests {
-    WebDriver driver;
     DevLoginPage page;
     DevLoginSteps devLoginSteps;
 
     @BeforeEach
     public void WarmUp() {
-        driver = new ChromeDriver();
-        page = new DevLoginPage(driver);
-        driver.get(page.baseURL);
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        devLoginSteps = new DevLoginSteps(driver);
+        page = new DevLoginPage();
+        devLoginSteps = new DevLoginSteps();
+        page.getBaseUrl();
     }
 
     @Test
@@ -59,6 +52,6 @@ public class DevLoginTests {
 
     @AfterEach
     public void tearsDown() {
-        driver.quit();
+        DriverSingleton.quit();
     }
 }

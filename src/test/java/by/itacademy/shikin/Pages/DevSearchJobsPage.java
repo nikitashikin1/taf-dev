@@ -6,14 +6,18 @@ import org.openqa.selenium.WebElement;
 
 public class DevSearchJobsPage {
     WebDriver driver;
-    public String baseURL = "https://jobs.devby.io/";
+    String baseURL = "https://jobs.devby.io/";
     String searchFieldLocator = "filter_search";
     String buttonSearchLocator = "//button[@class='search__button']";
     String resultSearchLocator = "//a[@class='vacancies-list-item__link_block'][1]";
     String popupWindowCloseButtonLocator = "/html/body/div[1]/div/form/button";
 
-    public DevSearchJobsPage(WebDriver driver) {
-        this.driver = driver;
+    public DevSearchJobsPage() {
+        this.driver = DriverSingleton.getDriver();
+    }
+
+    public void getBaseUrl(){
+        driver.get(baseURL);
     }
 
     public void closePopupWindow() {

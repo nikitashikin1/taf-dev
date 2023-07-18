@@ -5,12 +5,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class DevLoginPage {
+
     public WebDriver driver;
     String buttonLoginLocator = "body > div.wrap > header > div.navbar__row > div.navbar__nav.navbar__nav_aside > a > svg";
     String inputEmailLocator = "#root > div > div > div > div > div > div > form > ul > li:nth-child(1) > input";
     String inputPasswordLocator = "password";
     String buttonEnterLocator = "//*[@id='root']/div/div/div/div/div/div/form/button/span/span";
-    public String baseURL = "https://devby.io/";
+    String baseURL = "https://devby.io/";
     String resultTextLocator = "//*[@id='root']/div/div/div/div/div/div/form/span";
 
     public String resultWithBothFieldsEmpty = "Введите адрес электронной почты или имя пользователя.";
@@ -18,8 +19,13 @@ public class DevLoginPage {
     public String resultWithEmptyPassword = "Введите пароль.";
     public String resultWithIncorrectData = "Неверный логин или пароль.";
 
-    public DevLoginPage(WebDriver driver) {
-        this.driver = driver;
+    public DevLoginPage() {
+        this.driver = DriverSingleton.getDriver();
+    }
+
+
+    public void getBaseUrl(){
+        driver.get(baseURL);
     }
 
     public void clickButtonLogin() {
