@@ -1,7 +1,7 @@
-package by.itacademy.shikin.Tests;
+package by.itacademy.shikin.UI.Tests;
 
-import by.itacademy.shikin.Pages.DevSearchJobsPage;
-import by.itacademy.shikin.Pages.DriverSingleton;
+import by.itacademy.shikin.UI.Pages.DevSearchJobsPage;
+import by.itacademy.shikin.Driver.DriverSingleton;
 import org.junit.jupiter.api.Test;
 
 public class DevSearchJobsTests {

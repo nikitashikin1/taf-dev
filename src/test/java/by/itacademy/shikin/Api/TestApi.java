@@ -1,4 +1,4 @@
-package by.itacademy.shikin;
+package by.itacademy.shikin.Api;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;

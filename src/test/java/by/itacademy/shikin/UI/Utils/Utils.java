@@ -1,4 +1,4 @@
-package by.itacademy.shikin.Utils;
+package by.itacademy.shikin.UI.Utils;
 
 import com.github.javafaker.Faker;
 

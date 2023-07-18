@@ -1,5 +1,6 @@
-package by.itacademy.shikin.Pages;
+package by.itacademy.shikin.UI.Pages;
 
+import by.itacademy.shikin.Driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

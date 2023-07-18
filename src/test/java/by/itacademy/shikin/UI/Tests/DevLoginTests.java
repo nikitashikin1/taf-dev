@@ -1,9 +1,9 @@
-package by.itacademy.shikin.Tests;
+package by.itacademy.shikin.UI.Tests;
 
-import by.itacademy.shikin.Pages.DriverSingleton;
-import by.itacademy.shikin.Steps.DevLoginSteps;
-import by.itacademy.shikin.Pages.DevLoginPage;
-import by.itacademy.shikin.Utils.Utils;
+import by.itacademy.shikin.Driver.DriverSingleton;
+import by.itacademy.shikin.UI.Steps.DevLoginSteps;
+import by.itacademy.shikin.UI.Pages.DevLoginPage;
+import by.itacademy.shikin.UI.Utils.Utils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
