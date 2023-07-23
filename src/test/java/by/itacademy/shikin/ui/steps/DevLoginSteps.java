@@ -1,6 +1,6 @@
-package by.itacademy.shikin.UI.Steps;
+package by.itacademy.shikin.ui.steps;
 
-import by.itacademy.shikin.UI.Pages.DevLoginPage;
+import by.itacademy.shikin.ui.pages.DevLoginPage;
 
 public class DevLoginSteps {
     DevLoginPage page;

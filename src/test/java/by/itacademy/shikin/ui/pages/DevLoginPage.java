@@ -1,6 +1,6 @@
-package by.itacademy.shikin.UI.Pages;
+package by.itacademy.shikin.ui.pages;
 
-import by.itacademy.shikin.Driver.DriverSingleton;
+import by.itacademy.shikin.ui.driver.DriverSingleton;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -8,12 +8,14 @@ import org.openqa.selenium.WebElement;
 public class DevLoginPage {
 
     public WebDriver driver;
-    String buttonLoginLocator = "body > div.wrap > header > div.navbar__row > div.navbar__nav.navbar__nav_aside > a > svg";
-    String inputEmailLocator = "#root > div > div > div > div > div > div > form > ul > li:nth-child(1) > input";
-    String inputPasswordLocator = "password";
-    String buttonEnterLocator = "//*[@id='root']/div/div/div/div/div/div/form/button/span/span";
     String baseURL = "https://devby.io/";
-    String resultTextLocator = "//*[@id='root']/div/div/div/div/div/div/form/span";
+    String closePopupLocator = "//div[@id='dismiss-button']";
+    String buttonLoginLocator = "//div/a[@class='navbar__nav-item']";
+    String inputEmailLocator =  " //li/input[@class='input']";
+    String inputPasswordLocator = "password";
+    String buttonEnterLocator = "//button[@type='submit']";
+    String resultErrorTextLocator = "//span[@class='message message_error']";
+    String resultLoginTextLocator = "//a[@class='navbar__user-name']";
 
     public String resultWithBothFieldsEmpty = "Введите адрес электронной почты или имя пользователя.";
     public String resultWithEmptyEmail = "Введите адрес электронной почты или имя пользователя.";
@@ -29,13 +31,20 @@ public class DevLoginPage {
         driver.get(baseURL);
     }
 
+//    public void closePopup(){
+//        WebElement closePopupButton = driver.findElement(By.xpath(closePopupLocator));
+//        if(closePopupButton.isEnabled()) {
+//            closePopupButton.click();
+//       }
+//    }
+
     public void clickButtonLogin() {
-        WebElement buttonLogin = driver.findElement(By.cssSelector(buttonLoginLocator));
+        WebElement buttonLogin = driver.findElement(By.xpath(buttonLoginLocator));
         buttonLogin.click();
     }
 
     public void sendKeysEmailField(String value) {
-        WebElement emailField = driver.findElement(By.cssSelector(inputEmailLocator));
+        WebElement emailField = driver.findElement(By.xpath(inputEmailLocator));
         emailField.sendKeys(value);
     }
 
@@ -49,8 +58,13 @@ public class DevLoginPage {
         buttonEnter.click();
     }
 
-    public String getResultText() {
-        WebElement resultText = driver.findElement(By.xpath(resultTextLocator));
+    public String getErrorResultText() {
+        WebElement resultText = driver.findElement(By.xpath(resultErrorTextLocator));
         return resultText.getText();
+    }
+
+    public String getLoginText(){
+        WebElement loginText = driver.findElement(By.xpath(resultLoginTextLocator));
+        return loginText.getText();
     }
 }

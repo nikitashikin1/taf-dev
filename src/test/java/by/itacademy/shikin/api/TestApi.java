@@ -1,6 +1,5 @@
-package by.itacademy.shikin.Api;
+package by.itacademy.shikin.api;
 
-import io.restassured.RestAssured;
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
@@ -23,8 +22,7 @@ public class TestApi {
         PageApi page = new PageApi();
         String body = "{\"user\":{\"login\":\"test@gmail.com\",\"password\":\"1234\"}}";
         HashMap<String, String> headers = page.getHeaders();
-        RestAssured.urlEncodingEnabled = false;
-        given().when().headers(headers).body(body).post("https://id.devby.io/@/hello").then()
+        given().when().headers(headers).body(body).urlEncodingEnabled(false).post("https://id.devby.io/@/hello").then()
                 .assertThat().body(containsString("{\"error\":{\"message\":\"Неверный логин или пароль.\"}}"));
     }
 
@@ -33,8 +31,7 @@ public class TestApi {
         String body = "{\"user\":{\"login\":\"test@gmail.com\",\"password\":\"\"}}";
         PageApi page = new PageApi();
         HashMap<String, String> headers = page.getHeaders();
-        RestAssured.urlEncodingEnabled = false;
-        given().when().headers(headers).body(body).post("https://id.devby.io/@/hello").then()
+        given().when().headers(headers).body(body).urlEncodingEnabled(false).post("https://id.devby.io/@/hello").then()
                 .assertThat().body(containsString("{\"error\":{\"message\":\"Неверный логин или пароль.\"}}"));
     }
 
@@ -43,8 +40,7 @@ public class TestApi {
         String body = "{\"user\":{\"login\":\"\",\"password\":\"1234\"}}";
         PageApi page = new PageApi();
         HashMap<String, String> headers = page.getHeaders();
-        RestAssured.urlEncodingEnabled = false;
-        given().when().headers(headers).body(body).post("https://id.devby.io/@/hello").then()
+        given().when().headers(headers).body(body).urlEncodingEnabled(false).post("https://id.devby.io/@/hello").then()
                 .assertThat().body(containsString("{\"error\":{\"message\":\"Неверный логин или пароль.\"}}"));
     }
 
@@ -53,8 +49,7 @@ public class TestApi {
         String body = "{\"user\":{\"login\":\"taftestproject@gmail.com\",\"password\":\"Password1234\"}}";
         PageApi page = new PageApi();
         HashMap<String, String> headers = page.getHeaders();
-        RestAssured.urlEncodingEnabled = false;
-        given().when().headers(headers).body(body).post("https://id.devby.io/@/hello").then()
+        given().when().headers(headers).body(body).urlEncodingEnabled(false).post("https://id.devby.io/@/hello").then()
                 .assertThat().body(containsString("{\"success\":{\"redirect_url\":\"https://devby.io\",\"action\":null,\"message\":null,\"bad_phone\":null}}"));
     }
 }

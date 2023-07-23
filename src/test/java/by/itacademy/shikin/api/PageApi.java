@@ -1,4 +1,4 @@
-package by.itacademy.shikin.Api;
+package by.itacademy.shikin.api;
 
 import java.util.HashMap;
 
