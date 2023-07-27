@@ -14,7 +14,7 @@ public class TestApi {
         HashMap<String, String> queryParams = new HashMap<>();
         queryParams.put("filter[search]", "software engineer");
         given().queryParams(queryParams).when().get("https://jobs.devby.io").
-                then().assertThat().body(containsString("software engineer"));
+                then().log().body().assertThat().body(containsString("software engineer"));
     }
 
     @Test

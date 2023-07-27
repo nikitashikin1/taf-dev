@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 
 public class DevSearchJobsTests {
 
-
     @Test
     public void testSearch() {
         DevSearchJobsPage page = new DevSearchJobsPage();

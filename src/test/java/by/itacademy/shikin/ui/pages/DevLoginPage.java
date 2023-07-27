@@ -26,17 +26,9 @@ public class DevLoginPage {
         this.driver = DriverSingleton.getDriver();
     }
 
-
     public void getBaseUrl(){
         driver.get(baseURL);
     }
-
-//    public void closePopup(){
-//        WebElement closePopupButton = driver.findElement(By.xpath(closePopupLocator));
-//        if(closePopupButton.isEnabled()) {
-//            closePopupButton.click();
-//       }
-//    }
 
     public void clickButtonLogin() {
         WebElement buttonLogin = driver.findElement(By.xpath(buttonLoginLocator));
